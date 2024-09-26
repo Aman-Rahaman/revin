@@ -1,0 +1,50 @@
+{% extends "admin_dashboard/base3.html" %}
+
+
+{% block content %}
+
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">User ID</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for user in table %}
+        <tr>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.user_id.id}}</td>
+            {% comment %} <td>{{user.photo}}</td> {% endcomment %}
+            <td>{{user.phone_number}}</td>
+            <td>
+                <a href="{% url 'user_update' user.user_id.id %}">
+                {% comment %} <a href=""> {% endcomment %}
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </a>
+            </td>
+            <td>
+                <form action="{% url 'user_delete' user.user_id.id %}" method="post">
+                {% comment %} <form action="" method="post"> {% endcomment %}
+                    {% csrf_token %}
+                    <button type="submit" class="btn">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+
+
+
+
+{% endblock content %}
