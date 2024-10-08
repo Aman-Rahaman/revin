@@ -17,3 +17,25 @@ class UserProfile_table(models.Model):
     # photo = jpeg?
     phone_number = models.CharField(max_length=13)
 
+
+
+class EVChargingLocation(models.Model):
+    station_name = models.CharField(max_length=250)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+
+    def __str__(self):
+        return self.station_name
+    
+
+class land(models.Model):
+    # land_name = models.CharField(max_length=250)
+    coor = models.CharField(max_length=250)
+    # latitude = models.FloatField()
+    # longitude = models.FloatField()
+
+    # def __str__(self):
+    #     return self.land_name
+    
+
+

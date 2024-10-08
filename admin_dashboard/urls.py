@@ -11,4 +11,6 @@ urlpatterns = [
     # path('user2/', views.user_form2),
     path('table/', views.user_table2, name="user_table"),
     path('userprofile_table/', views.userprofile_table, name="userprofile_table"),
+    path('device_markers/', views.view_devices_markers, name='device_markers'),
+    path('device_clusters/', views.view_devices_cluster, name='device_clusters'),
 ]

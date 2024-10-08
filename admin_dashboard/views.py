@@ -1,7 +1,37 @@
 from django.shortcuts import render, redirect
 from .forms import UserForm, UserProfileForm
-from .models import User_table, UserProfile_table
-# Create your views here.
+from .models import User_table, UserProfile_table, EVChargingLocation
+import folium
+from folium.plugins import FastMarkerCluster
+
+import random
+
+
+def view_devices_markers(request):
+    stations = EVChargingLocation.objects.all()
+
+    map_obj = folium.Map(location=[41.5, -72.6], zoom_start=9)
+
+    for station in stations:
+        coordinates = (station.latitude, station.longitude)
+        folium.Marker(coordinates, popup=station.station_name).add_to(map_obj)
+
+    context = {'map': map_obj._repr_html_(), 'table':stations}
+    return render(request, "admin_dashboard/device_markers.html", context)
+
+def view_devices_cluster(request):
+    stations = EVChargingLocation.objects.all()
+
+    map_obj = folium.Map(location=[41.5, -72.6], zoom_start=9)
+
+    FastMarkerCluster(data=[[i.latitude, i.longitude] for i in stations]).add_to(map_obj)
+
+    # context = {'map': map_obj._repr_html_()}
+    context = {'map': map_obj._repr_html_(), 'table':stations}
+    return render(request, "admin_dashboard/device_markers.html", context)
+
+
+
 
 
 def user_table(request):

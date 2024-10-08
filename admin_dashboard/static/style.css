@@ -1,0 +1,62 @@
+.table-wrapper{
+    overflow-x: scroll;
+    overflow-y: scroll;
+    /* height: fit-content; */
+    max-height: 50vh;
+    border-radius: 5px;
+} 
+
+.table-wrapper th{
+    border: 1px solid #201E43;
+    padding: 5px;
+    background-color: #134B70;
+    color: #EEEEEE;
+    position: sticky;
+    top:0;
+}
+
+.table-wrapper td{
+    border: 1px solid #201E43;
+    padding: 5px;
+}
+.outer-wrapper{
+    border: 1px solid #201E43;
+    padding: 5px;
+}
+
+.mycard{
+    border-radius: 5px;
+    color: #EEEEEE;
+}
+
+#card1{
+    background-color: #508C9B;
+}
+#card2{
+    background-color: #134B70;
+}
+#card3{
+    background-color: #201E43;
+}
+
+/* .mycard:nth-child(1){
+    background-color: #201E43;
+}
+
+.mycard:nth-child(2){
+    background-color: #134B70;
+}
+
+.mycard:nth-child(3){
+    background-color: #508C9B;
+} */
+
+/* .col-4 .mycard:nth-child(1){
+    background-color: #201E43;
+}
+.col-4 .mycard:nth-child(2){
+    background-color: #134B70;
+}
+.col-4 .mycard:nth-child(3){
+    background-color: #508C9B;
+} */
